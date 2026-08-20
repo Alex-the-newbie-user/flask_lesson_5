@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .top {
+            padding:15px;
+            color:antiquewhite;
+            background-color: black;
+        }
+        footer {
+            padding:15px;
+            color:cadetblue;
+            background-color:azure;
+            text-align: center;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex:1;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header class="top">CodeSchool</header>
+    <main>
+        <h1>
+            {% block page_title %}{% endblock %}
+        </h1>
+    {% block content %}
+    {% endblock %}
+    </main>
+    <footer>CodeSchool © 2026</footer>
+</body>
+</html>

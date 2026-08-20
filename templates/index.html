@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+main
+{% endblock %}
+
+{% block page_title %}
+Course Catalog
+{% endblock %}
+
+{% block content %}
+{% for course in courses %}
+<div class="course_view">
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.teacher }}</p>
+    <p>{{ course.lessons }}</p>
+    <p>{{ course.level }}</p>
+    <p class="{% if course.is_available %}available{% else %}unavailable{% endif %}">
+        {% if course.is_available %}
+            Доступен
+        {% else %}
+            Набор закрыт
+        {% endif %}
+    </p>
+    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 15px 0" />
+    <a href="/course/{{ course.id }}" class="more_button">Подробнее</a>
+</div>
+{% endfor %}
+{% endblock %}

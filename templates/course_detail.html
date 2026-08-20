@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+main
+{% endblock %}
+
+{% block page_title %}
+Course Catalog
+{% endblock %}
+
+{% block content %}
+<div class="sel_course_view">
+    <h2>{{ sel_course.title }}</h2>
+    <p>{{ sel_course.teacher }}</p>
+    <p>{{ sel_course.lessons }}</p>
+    <p>{{ sel_course.level }}</p>
+    <p class="{% if sel_course.is_available %}available{% else %}unavailable{% endif %}">
+        {% if sel_course.is_available %}
+            Доступен для набора
+        {% else %}
+            Набор закрыт
+        {% endif %}
+    </p>
+</div>
+{% endblock %}
